@@ -1,0 +1,10 @@
+step,removed,remaining,pct_of_raw_removed
+raw,0,90074577,0.0
+duplicate_ride_id,0,90074577,0.0
+start_outside_window,410,90074167,0.0005
+missing_start_station,50106,90024061,0.0556
+depot_or_test_station,15536,90008525,0.0172
+start_station_in_nj,168,90008357,0.0002
+duration_nonpositive,800,90007557,0.0009
+duration_lt_60s,1,90007556,0.0
+duration_gt_24h,19997,89987559,0.0222

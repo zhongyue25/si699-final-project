@@ -1,0 +1,4 @@
+ride_id,rideable_type,member_casual,started_at,ended_at,duration_s,start_station_id,start_station_name,end_station_id,end_station_name,start_lat,start_lng,end_lat,end_lng,has_end_station,example
+0001C4E66ACF2063,electric_bike,member,2025-05-20 08:07:40.685,2025-05-20 08:16:39.285,538.6,6460.06,62 St & 34 Ave,6462.09,29 St & 40 Ave,40.75201,-73.89986,40.75217,-73.93588,True,typical_trip
+C975E6F2907248DF,electric_bike,casual,2024-03-14 16:17:16.908,2024-03-15 16:17:15.601,86398.693,8782.01,Paul Ave & W 205 St,8734.02,Jerome Ave & Bedford Park Blvd E,40.87704,-73.88943,40.87307,-73.88971,True,very_long_trip
+00020340AEF3A1B1,electric_bike,casual,2025-04-27 10:54:27.000,2025-04-27 11:39:02.786,2675.786,6912.01,7 Ave & Central Park South,6912.01,7 Ave & Central Park South,40.7667405590595,-73.9790689945221,40.7667405590595,-73.9790689945221,True,round_trip

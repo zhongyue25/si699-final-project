@@ -1,0 +1,1127 @@
+{
+  "A_collection_and_boundaries": {
+    "n_zip_files": 25,
+    "n_csv_files": 105,
+    "raw_rows": 90074577,
+    "missing_months": [],
+    "files_per_month": {
+      "202401": 2,
+      "202402": 3,
+      "202403": 3,
+      "202404": 4,
+      "202405": 5,
+      "202406": 5,
+      "202407": 5,
+      "202408": 5,
+      "202409": 5,
+      "202410": 6,
+      "202411": 4,
+      "202412": 3,
+      "202501": 3,
+      "202502": 3,
+      "202503": 4,
+      "202504": 4,
+      "202505": 5,
+      "202506": 5,
+      "202507": 5,
+      "202508": 6,
+      "202509": 6,
+      "202510": 5,
+      "202511": 4,
+      "202512": 3,
+      "202601": 2
+    },
+    "rows_per_file_month": {
+      "202401": 1888085,
+      "202402": 2121501,
+      "202403": 2663295,
+      "202404": 3217063,
+      "202405": 4133961,
+      "202406": 4783576,
+      "202407": 4722896,
+      "202408": 4603575,
+      "202409": 4997898,
+      "202410": 5150054,
+      "202411": 3710134,
+      "202412": 2311171,
+      "202501": 2124475,
+      "202502": 2031257,
+      "202503": 3168271,
+      "202504": 3724596,
+      "202505": 4325553,
+      "202506": 4759345,
+      "202507": 4988053,
+      "202508": 5121533,
+      "202509": 5287447,
+      "202510": 4731900,
+      "202511": 3417052,
+      "202512": 2091620,
+      "202601": 266
+    },
+    "spillover_rows_kept": {
+      "202601": 266
+    },
+    "spillover_rows_in_file": {
+      "202601": 1816391
+    },
+    "distinct_header_sets": 1,
+    "sniffed_type_sets": {
+      "VARCHAR,VARCHAR,TIMESTAMP,TIMESTAMP,VARCHAR,DOUBLE,VARCHAR,VARCHAR,DOUBLE,DOUBLE,DOUBLE,DOUBLE,VARCHAR": 3,
+      "VARCHAR,VARCHAR,TIMESTAMP,TIMESTAMP,VARCHAR,VARCHAR,VARCHAR,DOUBLE,DOUBLE,DOUBLE,DOUBLE,DOUBLE,VARCHAR": 8,
+      "VARCHAR,VARCHAR,TIMESTAMP,TIMESTAMP,VARCHAR,VARCHAR,VARCHAR,VARCHAR,DOUBLE,DOUBLE,DOUBLE,DOUBLE,VARCHAR": 94
+    },
+    "cast_failures": 0,
+    "start_lng_west_of_cutoff": 4944,
+    "start_lng_west_of_cutoff_but_nyc_station": 4769,
+    "start_station_nj": 168,
+    "end_station_nj": 6484,
+    "start_month_differs_from_file_month": 13932,
+    "end_month_differs_from_file_month": 0,
+    "started_before_window": 410,
+    "started_after_window": 0,
+    "min_started_at": "2023-12-31 02:36:55.648000",
+    "max_started_at": "2025-12-31 23:59:58.189000",
+    "max_ended_at": "2026-01-02 00:43:54.189000",
+    "weather": {
+      "TMAX": {
+        "missing_days": 0,
+        "quality_flagged_days": 0,
+        "trace_days": 0,
+        "source_flags": "1/W",
+        "min": -7.1,
+        "median": 18.3,
+        "max": 37.2
+      },
+      "TMIN": {
+        "missing_days": 0,
+        "quality_flagged_days": 0,
+        "trace_days": 0,
+        "source_flags": "1/W",
+        "min": -12.1,
+        "median": 10.0,
+        "max": 27.2
+      },
+      "PRCP": {
+        "missing_days": 0,
+        "quality_flagged_days": 0,
+        "trace_days": 79,
+        "source_flags": "1/W",
+        "min": 0.0,
+        "median": 0.0,
+        "max": 93.0
+      },
+      "SNOW": {
+        "missing_days": 0,
+        "quality_flagged_days": 0,
+        "trace_days": 22,
+        "source_flags": "1/W",
+        "min": 0.0,
+        "median": 0.0,
+        "max": 81.0
+      },
+      "SNWD": {
+        "missing_days": 1,
+        "quality_flagged_days": 0,
+        "trace_days": 8,
+        "source_flags": "1/W",
+        "min": 0.0,
+        "median": 0.0,
+        "max": 102.0
+      },
+      "AWND": {
+        "missing_days": 4,
+        "quality_flagged_days": 0,
+        "trace_days": 0,
+        "source_flags": "1/W",
+        "min": 0.3,
+        "median": 2.2,
+        "max": 6.4
+      }
+    }
+  },
+  "B_data_quality": {
+    "cleaning_steps": [
+      {
+        "step": "raw",
+        "removed": 0,
+        "remaining": 90074577,
+        "pct_of_raw_removed": 0.0
+      },
+      {
+        "step": "duplicate_ride_id",
+        "removed": 0,
+        "remaining": 90074577,
+        "pct_of_raw_removed": 0.0
+      },
+      {
+        "step": "start_outside_window",
+        "removed": 410,
+        "remaining": 90074167,
+        "pct_of_raw_removed": 0.0005
+      },
+      {
+        "step": "missing_start_station",
+        "removed": 50106,
+        "remaining": 90024061,
+        "pct_of_raw_removed": 0.0556
+      },
+      {
+        "step": "depot_or_test_station",
+        "removed": 15536,
+        "remaining": 90008525,
+        "pct_of_raw_removed": 0.0172
+      },
+      {
+        "step": "start_station_in_nj",
+        "removed": 168,
+        "remaining": 90008357,
+        "pct_of_raw_removed": 0.0002
+      },
+      {
+        "step": "duration_nonpositive",
+        "removed": 800,
+        "remaining": 90007557,
+        "pct_of_raw_removed": 0.0009
+      },
+      {
+        "step": "duration_lt_60s",
+        "removed": 1,
+        "remaining": 90007556,
+        "pct_of_raw_removed": 0.0
+      },
+      {
+        "step": "duration_gt_24h",
+        "removed": 19997,
+        "remaining": 89987559,
+        "pct_of_raw_removed": 0.0222
+      }
+    ],
+    "raw_issue_counts": {
+      "missing_end_station_id": {
+        "n_trips": 252958,
+        "pct_of_raw": 0.2808
+      },
+      "missing_end_station_name": {
+        "n_trips": 235953,
+        "pct_of_raw": 0.262
+      },
+      "missing_end_coords": {
+        "n_trips": 252504,
+        "pct_of_raw": 0.2803
+      },
+      "zero_end_coords": {
+        "n_trips": 197,
+        "pct_of_raw": 0.0002
+      },
+      "missing_start_station": {
+        "n_trips": 50106,
+        "pct_of_raw": 0.0556
+      },
+      "missing_start_coords": {
+        "n_trips": 50106,
+        "pct_of_raw": 0.0556
+      },
+      "duration_nonpositive": {
+        "n_trips": 801,
+        "pct_of_raw": 0.0009
+      },
+      "duration_lt_60s": {
+        "n_trips": 118,
+        "pct_of_raw": 0.0001
+      },
+      "duration_gt_24h": {
+        "n_trips": 20039,
+        "pct_of_raw": 0.0222
+      },
+      "duration_gt_24h_and_no_end_station": {
+        "n_trips": 19425,
+        "pct_of_raw": 0.0216
+      },
+      "start_lng_west_of_cutoff": {
+        "n_trips": 4944,
+        "pct_of_raw": 0.0055
+      },
+      "start_lng_west_of_cutoff_but_nyc_station": {
+        "n_trips": 4769,
+        "pct_of_raw": 0.0053
+      },
+      "start_station_nj": {
+        "n_trips": 168,
+        "pct_of_raw": 0.0002
+      },
+      "end_station_nj": {
+        "n_trips": 6484,
+        "pct_of_raw": 0.0072
+      },
+      "start_station_depot_or_test": {
+        "n_trips": 8124,
+        "pct_of_raw": 0.009
+      },
+      "end_station_depot_or_test": {
+        "n_trips": 9747,
+        "pct_of_raw": 0.0108
+      },
+      "start_in_los_angeles_demo": {
+        "n_trips": 41,
+        "pct_of_raw": 0.0
+      },
+      "start_station_id_needs_normalising": {
+        "n_trips": 502131,
+        "pct_of_raw": 0.5575
+      },
+      "start_month_differs_from_file_month": {
+        "n_trips": 13932,
+        "pct_of_raw": 0.0155
+      }
+    },
+    "duration_quantiles_s": {
+      "p1": 85.0,
+      "p25": 313.0,
+      "p50": 536.9,
+      "p75": 929.1,
+      "p95": 1993.3,
+      "p99": 3648.4,
+      "p99.9": 15855.4
+    },
+    "duration_tail": [
+      {
+        "threshold_h": 1,
+        "n_longer": 933972,
+        "n_longer_no_end": 129766
+      },
+      {
+        "threshold_h": 3,
+        "n_longer": 128799,
+        "n_longer_no_end": 55644
+      },
+      {
+        "threshold_h": 6,
+        "n_longer": 69162,
+        "n_longer_no_end": 39921
+      },
+      {
+        "threshold_h": 12,
+        "n_longer": 34893,
+        "n_longer_no_end": 22815
+      },
+      {
+        "threshold_h": 24,
+        "n_longer": 20039,
+        "n_longer_no_end": 19425
+      },
+      {
+        "threshold_h": 25,
+        "n_longer": 70,
+        "n_longer_no_end": 68
+      },
+      {
+        "threshold_h": 48,
+        "n_longer": 1,
+        "n_longer_no_end": 1
+      }
+    ],
+    "clean_rows": 89987559,
+    "pct_removed": 0.0966
+  },
+  "C_scale_and_categories": {
+    "clean_trips_total": 89987559,
+    "trips_per_year": {
+      "2024": 44254988,
+      "2025": 45732571
+    },
+    "trips_per_month": {
+      "202401": 1885994,
+      "202402": 2118819,
+      "202403": 2659528,
+      "202404": 3213213,
+      "202405": 4131849,
+      "202406": 4779141,
+      "202407": 4717994,
+      "202408": 4598875,
+      "202409": 4990674,
+      "202410": 5144418,
+      "202411": 3705357,
+      "202412": 2309126,
+      "202501": 2123375,
+      "202502": 2030081,
+      "202503": 3165775,
+      "202504": 3722060,
+      "202505": 4322075,
+      "202506": 4754916,
+      "202507": 4982072,
+      "202508": 5118209,
+      "202509": 5283438,
+      "202510": 4727838,
+      "202511": 3412969,
+      "202512": 2089763
+    },
+    "member_share_overall": 0.8164,
+    "member_share_by_year": {
+      "2024": 0.807,
+      "2025": 0.8256
+    },
+    "member_share_by_month": {
+      "202401": 0.8899,
+      "202402": 0.8809,
+      "202403": 0.8412,
+      "202404": 0.8146,
+      "202405": 0.7929,
+      "202406": 0.7669,
+      "202407": 0.7692,
+      "202408": 0.7683,
+      "202409": 0.7915,
+      "202410": 0.8082,
+      "202411": 0.8327,
+      "202412": 0.8734,
+      "202501": 0.9051,
+      "202502": 0.9051,
+      "202503": 0.8588,
+      "202504": 0.8348,
+      "202505": 0.8055,
+      "202506": 0.8001,
+      "202507": 0.7886,
+      "202508": 0.7747,
+      "202509": 0.8107,
+      "202510": 0.831,
+      "202511": 0.8519,
+      "202512": 0.8953
+    },
+    "electric_share_overall": 0.6832,
+    "electric_share_by_year": {
+      "2024": 0.6611,
+      "2025": 0.7045
+    },
+    "electric_share_by_month": {
+      "202401": 0.6432,
+      "202402": 0.6446,
+      "202403": 0.6473,
+      "202404": 0.655,
+      "202405": 0.6508,
+      "202406": 0.6493,
+      "202407": 0.6594,
+      "202408": 0.6645,
+      "202409": 0.6643,
+      "202410": 0.6687,
+      "202411": 0.682,
+      "202412": 0.6979,
+      "202501": 0.703,
+      "202502": 0.6974,
+      "202503": 0.7043,
+      "202504": 0.6941,
+      "202505": 0.6955,
+      "202506": 0.7102,
+      "202507": 0.7078,
+      "202508": 0.6995,
+      "202509": 0.7003,
+      "202510": 0.7054,
+      "202511": 0.7197,
+      "202512": 0.7262
+    },
+    "rideable_types": {
+      "electric_bike": 61477996,
+      "classic_bike": 28509563
+    },
+    "active_stations_by_month": {
+      "202401": 2125,
+      "202402": 2120,
+      "202403": 2126,
+      "202404": 2121,
+      "202405": 2122,
+      "202406": 2137,
+      "202407": 2131,
+      "202408": 2132,
+      "202409": 2135,
+      "202410": 2133,
+      "202411": 2134,
+      "202412": 2135,
+      "202501": 2146,
+      "202502": 2141,
+      "202503": 2146,
+      "202504": 2146,
+      "202505": 2144,
+      "202506": 2149,
+      "202507": 2149,
+      "202508": 2136,
+      "202509": 2140,
+      "202510": 2161,
+      "202511": 2181,
+      "202512": 2183
+    },
+    "stations_total": 2291,
+    "stations_active_all_24_months": 1897,
+    "stations_first_seen_2025": 85,
+    "trips_per_station": {
+      "min": 22,
+      "median": 17916.0,
+      "max": 330225,
+      "stations_for_50pct_of_trips": 334
+    },
+    "top10_stations": [
+      {
+        "station_id": "6140.05",
+        "station_name": "W 21 St & 6 Ave",
+        "n_trips": 330225,
+        "in_zone": true
+      },
+      {
+        "station_id": "5788.13",
+        "station_name": "Lafayette St & E 8 St",
+        "n_trips": 281424,
+        "in_zone": true
+      },
+      {
+        "station_id": "5329.03",
+        "station_name": "West St & Chambers St",
+        "n_trips": 276111,
+        "in_zone": true
+      },
+      {
+        "station_id": "5905.14",
+        "station_name": "University Pl & E 14 St",
+        "n_trips": 270007,
+        "in_zone": true
+      },
+      {
+        "station_id": "6331.01",
+        "station_name": "W 31 St & 7 Ave",
+        "n_trips": 266596,
+        "in_zone": true
+      },
+      {
+        "station_id": "6948.10",
+        "station_name": "Broadway & W 58 St",
+        "n_trips": 266098,
+        "in_zone": true
+      },
+      {
+        "station_id": "5905.12",
+        "station_name": "Broadway & E 14 St",
+        "n_trips": 262085,
+        "in_zone": true
+      },
+      {
+        "station_id": "6726.01",
+        "station_name": "11 Ave & W 41 St",
+        "n_trips": 257083,
+        "in_zone": true
+      },
+      {
+        "station_id": "6450.05",
+        "station_name": "8 Ave & W 31 St",
+        "n_trips": 255166,
+        "in_zone": true
+      },
+      {
+        "station_id": "6233.04",
+        "station_name": "Pier 61 at Chelsea Piers",
+        "n_trips": 253034,
+        "in_zone": true
+      }
+    ],
+    "no_end_station_kept": 215290,
+    "round_trip_share": 0.0212,
+    "example_trips": [
+      {
+        "ride_id": "0001C4E66ACF2063",
+        "rideable_type": "electric_bike",
+        "member_casual": "member",
+        "started_at": "2025-05-20T08:07:40.685",
+        "ended_at": "2025-05-20T08:16:39.285",
+        "duration_s": 538.6,
+        "start_station_id": "6460.06",
+        "start_station_name": "62 St & 34 Ave",
+        "end_station_id": "6462.09",
+        "end_station_name": "29 St & 40 Ave",
+        "start_lat": 40.75201,
+        "start_lng": -73.89986,
+        "end_lat": 40.75217,
+        "end_lng": -73.93588,
+        "has_end_station": true,
+        "example": "typical_trip"
+      },
+      {
+        "ride_id": "C975E6F2907248DF",
+        "rideable_type": "electric_bike",
+        "member_casual": "casual",
+        "started_at": "2024-03-14T16:17:16.908",
+        "ended_at": "2024-03-15T16:17:15.601",
+        "duration_s": 86398.693,
+        "start_station_id": "8782.01",
+        "start_station_name": "Paul Ave & W 205 St",
+        "end_station_id": "8734.02",
+        "end_station_name": "Jerome Ave & Bedford Park Blvd E",
+        "start_lat": 40.87704,
+        "start_lng": -73.88943,
+        "end_lat": 40.87307,
+        "end_lng": -73.88971,
+        "has_end_station": true,
+        "example": "very_long_trip"
+      },
+      {
+        "ride_id": "00020340AEF3A1B1",
+        "rideable_type": "electric_bike",
+        "member_casual": "casual",
+        "started_at": "2025-04-27T10:54:27.000",
+        "ended_at": "2025-04-27T11:39:02.786",
+        "duration_s": 2675.786,
+        "start_station_id": "6912.01",
+        "start_station_name": "7 Ave & Central Park South",
+        "end_station_id": "6912.01",
+        "end_station_name": "7 Ave & Central Park South",
+        "start_lat": 40.7667405591,
+        "start_lng": -73.9790689945,
+        "end_lat": 40.7667405591,
+        "end_lng": -73.9790689945,
+        "has_end_station": true,
+        "example": "round_trip"
+      }
+    ]
+  },
+  "D_temporal_patterns": {
+    "top2_hours": {
+      "weekday_member": [
+        17,
+        18
+      ],
+      "weekday_casual": [
+        17,
+        18
+      ],
+      "weekend_member": [
+        14,
+        15
+      ],
+      "weekend_casual": [
+        14,
+        15
+      ]
+    },
+    "daily_trips": {
+      "min": 12857,
+      "median": 130857.0,
+      "max": 201875,
+      "max_date": "2025-09-26"
+    },
+    "lowest_days": [
+      {
+        "date": "2025-12-27",
+        "trips": 12857,
+        "tmax_f": 30.9,
+        "prcp_in": 0.22,
+        "snow_mm": 66.0,
+        "holiday": NaN
+      },
+      {
+        "date": "2024-12-25",
+        "trips": 21558,
+        "tmax_f": 35.1,
+        "prcp_in": 0.0,
+        "snow_mm": 0.0,
+        "holiday": "Christmas Day"
+      },
+      {
+        "date": "2024-03-23",
+        "trips": 23386,
+        "tmax_f": 50.0,
+        "prcp_in": 3.66,
+        "snow_mm": 0.0,
+        "holiday": NaN
+      },
+      {
+        "date": "2025-12-28",
+        "trips": 23478,
+        "tmax_f": 39.0,
+        "prcp_in": 0.0,
+        "snow_mm": 0.0,
+        "holiday": NaN
+      },
+      {
+        "date": "2025-12-14",
+        "trips": 24142,
+        "tmax_f": 33.1,
+        "prcp_in": 0.51,
+        "snow_mm": 74.0,
+        "holiday": NaN
+      }
+    ],
+    "weekday_mean_trips": 126730.21988527724,
+    "weekend_mean_trips": 113979.10576923077
+  },
+  "E_weather": {
+    "tmax_f": {
+      "min": 19.2,
+      "median": 64.9,
+      "max": 99.0
+    },
+    "tmin_f": {
+      "min": 10.2,
+      "median": 50.0,
+      "max": 81.0
+    },
+    "awnd_mph": {
+      "min": 0.7,
+      "median": 4.9,
+      "max": 14.3
+    },
+    "days": 731,
+    "rain_days": 246,
+    "heavy_rain_days": 58,
+    "trace_only_days": 79,
+    "snow_days": 22,
+    "snow_days_ge_1in": 10,
+    "snow_depth_days": 41,
+    "days_tmax_ge_90f": 25,
+    "days_tmax_le_32f": 25,
+    "rain_days_by_year": {
+      "2024": 125,
+      "2025": 121
+    },
+    "heavy_rain_weekend_days": 22,
+    "holidays": 22,
+    "median_trips_relative_to_same_month_dry_median": {
+      "dry": {
+        "rel_member": 1.0,
+        "rel_casual": 1.0
+      },
+      "heavy rain": {
+        "rel_member": 0.661,
+        "rel_casual": 0.587
+      },
+      "light rain": {
+        "rel_member": 0.897,
+        "rel_casual": 0.839
+      }
+    },
+    "preliminary_regression": {
+      "member": {
+        "n_days": 731,
+        "r_squared": 0.74,
+        "tmax_f": [
+          0.03743,
+          0.02699,
+          0.04787
+        ],
+        "tmax_f_squared": [
+          -0.000193,
+          -0.000267,
+          -0.00012
+        ],
+        "rain": [
+          -0.2115,
+          -0.25,
+          -0.1729
+        ],
+        "rain_pct_effect": [
+          -19.1,
+          -22.1,
+          -15.9
+        ],
+        "implied_peak_tmax_f": 96.9,
+        "pct_per_f_at_50f": 1.83,
+        "pct_per_f_at_80f": 0.66
+      },
+      "casual": {
+        "n_days": 731,
+        "r_squared": 0.895,
+        "tmax_f": [
+          0.07552,
+          0.06265,
+          0.08838
+        ],
+        "tmax_f_squared": [
+          -0.000377,
+          -0.000471,
+          -0.000283
+        ],
+        "rain": [
+          -0.3214,
+          -0.3662,
+          -0.2765
+        ],
+        "rain_pct_effect": [
+          -27.5,
+          -30.7,
+          -24.2
+        ],
+        "implied_peak_tmax_f": 100.2,
+        "pct_per_f_at_50f": 3.85,
+        "pct_per_f_at_80f": 1.53
+      }
+    },
+    "regression_by_rider_and_bike": {
+      "member_electric": {
+        "n_days": 731,
+        "r_squared": 0.723,
+        "tmax_f": [
+          0.03261,
+          0.02142,
+          0.0438
+        ],
+        "tmax_f_squared": [
+          -0.000163,
+          -0.000243,
+          -8.4e-05
+        ],
+        "rain": [
+          -0.1955,
+          -0.2352,
+          -0.1558
+        ],
+        "rain_pct_effect": [
+          -17.8,
+          -21.0,
+          -14.4
+        ],
+        "implied_peak_tmax_f": 99.8,
+        "pct_per_f_at_50f": 1.64,
+        "pct_per_f_at_80f": 0.65
+      },
+      "member_classic": {
+        "n_days": 731,
+        "r_squared": 0.739,
+        "tmax_f": [
+          0.04707,
+          0.03629,
+          0.05786
+        ],
+        "tmax_f_squared": [
+          -0.000252,
+          -0.000332,
+          -0.000173
+        ],
+        "rain": [
+          -0.2447,
+          -0.2851,
+          -0.2043
+        ],
+        "rain_pct_effect": [
+          -21.7,
+          -24.8,
+          -18.5
+        ],
+        "implied_peak_tmax_f": 93.3,
+        "pct_per_f_at_50f": 2.21,
+        "pct_per_f_at_80f": 0.67
+      },
+      "casual_electric": {
+        "n_days": 731,
+        "r_squared": 0.896,
+        "tmax_f": [
+          0.06854,
+          0.05671,
+          0.08037
+        ],
+        "tmax_f_squared": [
+          -0.00034,
+          -0.000424,
+          -0.000255
+        ],
+        "rain": [
+          -0.2928,
+          -0.335,
+          -0.2506
+        ],
+        "rain_pct_effect": [
+          -25.4,
+          -28.5,
+          -22.2
+        ],
+        "implied_peak_tmax_f": 100.9,
+        "pct_per_f_at_50f": 3.52,
+        "pct_per_f_at_80f": 1.43
+      },
+      "casual_classic": {
+        "n_days": 731,
+        "r_squared": 0.881,
+        "tmax_f": [
+          0.10086,
+          0.08358,
+          0.11814
+        ],
+        "tmax_f_squared": [
+          -0.000518,
+          -0.00065,
+          -0.000387
+        ],
+        "rain": [
+          -0.4149,
+          -0.4726,
+          -0.3572
+        ],
+        "rain_pct_effect": [
+          -34.0,
+          -37.7,
+          -30.0
+        ],
+        "implied_peak_tmax_f": 97.3,
+        "pct_per_f_at_50f": 5.03,
+        "pct_per_f_at_80f": 1.81
+      }
+    },
+    "ebike_share_by_condition": [
+      {
+        "condition": "dry",
+        "n_days": 485,
+        "member_share": 0.6685,
+        "member_within_month_pp": -0.37,
+        "casual_share": 0.7308,
+        "casual_within_month_pp": -0.66
+      },
+      {
+        "condition": "rain",
+        "n_days": 246,
+        "member_share": 0.6788,
+        "member_within_month_pp": 0.73,
+        "casual_share": 0.7476,
+        "casual_within_month_pp": 1.29
+      },
+      {
+        "condition": "heavy rain",
+        "n_days": 58,
+        "member_share": 0.6849,
+        "member_within_month_pp": 1.62,
+        "casual_share": 0.7419,
+        "casual_within_month_pp": 2.52
+      },
+      {
+        "condition": "TMAX 60-75F",
+        "n_days": 176,
+        "member_share": 0.6682,
+        "member_within_month_pp": -0.26,
+        "casual_share": 0.7309,
+        "casual_within_month_pp": -0.64
+      },
+      {
+        "condition": "TMAX >= 85F",
+        "n_days": 76,
+        "member_share": 0.6745,
+        "member_within_month_pp": 0.43,
+        "casual_share": 0.7357,
+        "casual_within_month_pp": 0.8
+      }
+    ]
+  },
+  "F_congestion_pricing": {
+    "buffer_sensitivity": [
+      {
+        "buffer_m": 0,
+        "stations_inside": 391,
+        "yoy_inside_all_pct": 3.74,
+        "yoy_outside_all_pct": 2.99,
+        "gap_all_pp": 0.75,
+        "yoy_inside_constant_pct": 1.38,
+        "yoy_outside_constant_pct": 2.46,
+        "gap_constant_pp": -1.08
+      },
+      {
+        "buffer_m": 50,
+        "stations_inside": 405,
+        "yoy_inside_all_pct": 3.73,
+        "yoy_outside_all_pct": 2.97,
+        "gap_all_pp": 0.76,
+        "yoy_inside_constant_pct": 1.12,
+        "yoy_outside_constant_pct": 2.73,
+        "gap_constant_pp": -1.61
+      },
+      {
+        "buffer_m": 150,
+        "stations_inside": 410,
+        "yoy_inside_all_pct": 3.9,
+        "yoy_outside_all_pct": 2.81,
+        "gap_all_pp": 1.1,
+        "yoy_inside_constant_pct": 1.1,
+        "yoy_outside_constant_pct": 2.75,
+        "gap_constant_pp": -1.66
+      }
+    ],
+    "stations_inside": 405,
+    "stations_inside_by_buffer_only": 14,
+    "stations_within_150m_of_boundary": 82,
+    "stations_outside": 1886,
+    "stations_active_by_zone_year": {
+      "inside": {
+        "2024": 397,
+        "2025": 388
+      },
+      "outside": {
+        "2024": 1809,
+        "2025": 1847
+      }
+    },
+    "stations_active_all_24_months_by_zone": {
+      "outside": 1573,
+      "inside": 324
+    },
+    "trips_by_zone_year": {
+      "inside": {
+        "2024": 21334281,
+        "2025": 22130667
+      },
+      "outside": {
+        "2024": 22920707,
+        "2025": 23601904
+      }
+    },
+    "yoy_pct_all_stations": {
+      "inside": 3.73,
+      "outside": 2.97
+    },
+    "yoy_pct_constant_stations": {
+      "inside": 1.12,
+      "outside": 2.73
+    },
+    "inside_share_of_trips_by_year": {
+      "2024": 0.4821,
+      "2025": 0.4839
+    },
+    "yoy_pct_by_month_all_stations": {
+      "1": {
+        "inside": 10.7,
+        "outside": 14.4
+      },
+      "2": {
+        "inside": -4.5,
+        "outside": -3.8
+      },
+      "3": {
+        "inside": 19.2,
+        "outside": 18.9
+      },
+      "4": {
+        "inside": 16.7,
+        "outside": 15.1
+      },
+      "5": {
+        "inside": 3.3,
+        "outside": 5.8
+      },
+      "6": {
+        "inside": -0.2,
+        "outside": -0.7
+      },
+      "7": {
+        "inside": 7.1,
+        "outside": 4.3
+      },
+      "8": {
+        "inside": 12.2,
+        "outside": 10.5
+      },
+      "9": {
+        "inside": 7.5,
+        "outside": 4.3
+      },
+      "10": {
+        "inside": -7.3,
+        "outside": -8.8
+      },
+      "11": {
+        "inside": -7.8,
+        "outside": -8.0
+      },
+      "12": {
+        "inside": -9.2,
+        "outside": -9.7
+      }
+    }
+  },
+  "Q4_yoy_check": {
+    "by_quarter": {
+      "Q4 2024": {
+        "trips_total": 11158901.0,
+        "trips_member": 9260309.0,
+        "trips_casual": 1898592.0,
+        "mean_tmax_f": 56.8,
+        "mean_tmin_f": 43.6,
+        "rain_days": 25.0,
+        "heavy_rain_days": 6.0,
+        "total_prcp_in": 7.89,
+        "snow_days": 2.0,
+        "days_tmax_le_40f": 15.0,
+        "mean_monthly_active_stations": 2134.0,
+        "electric_share": 0.6792,
+        "member_share": 0.8299
+      },
+      "Q4 2025": {
+        "trips_total": 10230570.0,
+        "trips_member": 8707193.0,
+        "trips_casual": 1523377.0,
+        "mean_tmax_f": 52.7,
+        "mean_tmin_f": 40.4,
+        "rain_days": 32.0,
+        "heavy_rain_days": 7.0,
+        "total_prcp_in": 9.57,
+        "snow_days": 3.0,
+        "days_tmax_le_40f": 16.0,
+        "mean_monthly_active_stations": 2175.0,
+        "electric_share": 0.7144,
+        "member_share": 0.8511
+      },
+      "change": {
+        "trips_total": -928331.0,
+        "trips_member": -553116.0,
+        "trips_casual": -375215.0,
+        "mean_tmax_f": -4.099999999999994,
+        "mean_tmin_f": -3.200000000000003,
+        "rain_days": 7.0,
+        "heavy_rain_days": 1.0,
+        "total_prcp_in": 1.6800000000000006,
+        "snow_days": 1.0,
+        "days_tmax_le_40f": 1.0,
+        "mean_monthly_active_stations": 41.0,
+        "electric_share": 0.03520000000000001,
+        "member_share": 0.021199999999999997
+      }
+    },
+    "by_month": [
+      {
+        "year": 2024,
+        "month": 10,
+        "trips": 5144418,
+        "mean_tmax_f": 68.7,
+        "rain_days": 1,
+        "snow_days": 0
+      },
+      {
+        "year": 2024,
+        "month": 11,
+        "trips": 3705357,
+        "mean_tmax_f": 58.2,
+        "rain_days": 7,
+        "snow_days": 0
+      },
+      {
+        "year": 2024,
+        "month": 12,
+        "trips": 2309126,
+        "mean_tmax_f": 43.6,
+        "rain_days": 17,
+        "snow_days": 2
+      },
+      {
+        "year": 2025,
+        "month": 10,
+        "trips": 4727838,
+        "mean_tmax_f": 65.0,
+        "rain_days": 9,
+        "snow_days": 0
+      },
+      {
+        "year": 2025,
+        "month": 11,
+        "trips": 3412969,
+        "mean_tmax_f": 53.0,
+        "rain_days": 12,
+        "snow_days": 0
+      },
+      {
+        "year": 2025,
+        "month": 12,
+        "trips": 2089763,
+        "mean_tmax_f": 40.0,
+        "rain_days": 11,
+        "snow_days": 3
+      }
+    ]
+  }
+}

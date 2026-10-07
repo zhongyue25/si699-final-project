@@ -1,0 +1,6 @@
+condition,n_days,member_share,member_within_month_pp,casual_share,casual_within_month_pp
+dry,485,0.6685,-0.37,0.7308,-0.66
+rain,246,0.6788,0.73,0.7476,1.29
+heavy rain,58,0.6849,1.62,0.7419,2.52
+TMAX 60-75F,176,0.6682,-0.26,0.7309,-0.64
+TMAX >= 85F,76,0.6745,0.43,0.7357,0.8

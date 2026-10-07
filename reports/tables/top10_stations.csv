@@ -1,0 +1,11 @@
+station_id,station_name,n_trips,in_zone
+6140.05,W 21 St & 6 Ave,330225,True
+5788.13,Lafayette St & E 8 St,281424,True
+5329.03,West St & Chambers St,276111,True
+5905.14,University Pl & E 14 St,270007,True
+6331.01,W 31 St & 7 Ave,266596,True
+6948.10,Broadway & W 58 St,266098,True
+5905.12,Broadway & E 14 St,262085,True
+6726.01,11 Ave & W 41 St,257083,True
+6450.05,8 Ave & W 31 St,255166,True
+6233.04,Pier 61 at Chelsea Piers,253034,True

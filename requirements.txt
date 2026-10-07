@@ -1,0 +1,7 @@
+duckdb==1.5.6
+holidays==0.106
+matplotlib==3.11.2
+numpy==2.5.3
+pandas==3.0.6
+pyarrow==25.0.1
+statsmodels==0.15.0
