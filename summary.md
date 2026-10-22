@@ -16,10 +16,11 @@ Study window: 2024-01-01 to 2025-12-31 (731 days).
    168 trips start in NJ and 6,484 end there.
 4. **Official preprocessing is incomplete.** 8,124 trips still start at depot/test/demo stations
    (`SYS*`, `Shop Morgan`, `Lab - NYC`, and `LA Metro Demo` with Los Angeles coordinates), and 118
-   trips are shorter than 60 s.
+   trips are shorter than 60 s. One depot has a normal-looking id: `1234.56` "Morgan HCT Charging"
+   (1,994 trips start or end there), caught by a station-name rule (step 4b).
 5. **Station ids are not stable strings.** 502,131 trips (0.56%) carry ids with a dropped trailing
    zero (`7756.1` vs `7756.10`) or a suffix (`6569.09_`, `5348.06_old`, `6247.06_Pillar`). Without
-   normalisation the station count is inflated (2,471 raw ids vs 2,291 normalised).
+   normalisation the station count is inflated (2,471 raw ids vs 2,291 normalised, 2,290 after the depot-name rule).
 6. **Timestamps are local wall-clock time with no UTC offset.** All 801 trips with non-positive
    duration started on the two DST fall-back days (2024-11-03, 2025-11-02).
 7. **Files are partitioned by trip end month, not start month.** 13,932 trips start in the month
@@ -69,12 +70,17 @@ Cleaning rule, applied in this order (each trip is counted at the first step tha
 | 2. Start outside 2024-2025 | 410 | 0.0005 | 90,074,167 |
 | 3. Start station id/name missing | 50,106 | 0.0556 | 90,024,061 |
 | 4. Depot / test / demo station at either end | 15,536 | 0.0172 | 90,008,525 |
-| 5. Start station in New Jersey | 168 | 0.0002 | 90,008,357 |
-| 6. Duration <= 0 (DST artefact) | 800 | 0.0009 | 90,007,557 |
-| 7. Duration < 60 s | 1 | 0.0000 | 90,007,556 |
-| 8. Duration > 24 h | 19,997 | 0.0222 | 89,987,559 |
+| 4b. Station name contains the word Charging, Depot, Lab, Shop, Demo or Test (either end) | 1,994 | 0.0022 | 90,006,531 |
+| 5. Start station in New Jersey | 168 | 0.0002 | 90,006,363 |
+| 6. Duration <= 0 (DST artefact) | 800 | 0.0009 | 90,005,563 |
+| 7. Duration < 60 s | 1 | 0.0000 | 90,005,562 |
+| 8. Duration > 24 h | 19,997 | 0.0222 | 89,985,565 |
 
-Total removed: 87,018 trips (0.097%). Clean table: **89,987,559 trips**.
+Total removed: 89,012 trips (0.099%). Clean table: **89,985,565 trips**.
+
+Step 4b matches whole words only, so `Wallabout St` stations are not caught by "Lab". In the
+current data it removes only `1234.56` "Morgan HCT Charging" (862 trip starts there; the rest end
+there); every other name it matches is already removed in step 4.
 
 Non-exclusive counts on the raw table:
 
@@ -87,14 +93,14 @@ Non-exclusive counts on the raw table:
 - Duration quantiles: p1 85 s, median 537 s (9 min), p95 33 min, p99 61 min, p99.9 4.4 h.
 
 Decision on missing end stations: **keep and flag** (`has_end_station`). Ridership is counted at
-trip start, and 215,290 such trips remain after the other filters. They must be excluded from any
+trip start, and 215,272 such trips remain after the other filters. They must be excluded from any
 origin-destination or duration analysis.
 
 ## C. Scale and categories
 
 | | 2024 | 2025 | Total |
 |---|---|---|---|
-| Clean trips | 44,254,988 | 45,732,571 | 89,987,559 |
+| Clean trips | 44,254,988 | 45,730,577 | 89,985,565 |
 | Member share | 80.7% | 82.6% | 81.6% |
 | E-bike share | 66.1% | 70.5% | 68.3% |
 
@@ -103,9 +109,9 @@ origin-destination or duration analysis.
   seasonal.
 - E-bike share rises from 64% (Jan 2024) to 73% (Dec 2025). Only `classic_bike` and
   `electric_bike` appear.
-- Stations with at least one start per month: 2,125 (Jan 2024) to 2,183 (Dec 2025). 2,291 distinct
-  station ids overall; 1,897 are active in all 24 months; 85 first appear in 2025.
-- Trips per station: min 22, median 17,916, max 330,225. The top 334 stations (15%) generate half
+- Stations with at least one start per month: 2,125 (Jan 2024) to 2,182 (Dec 2025). 2,290 distinct
+  station ids overall; 1,897 are active in all 24 months; 84 first appear in 2025.
+- Trips per station: min 22, median 17,961, max 330,225. The top 334 stations (15%) generate half
   of all trips. All top-10 stations are inside the congestion zone; the largest is W 21 St & 6 Ave.
 - Round trips (same start and end station): 2.1%.
 
@@ -122,8 +128,8 @@ Example rows (`reports/tables/example_trips.csv`):
 - Weekday members: two peaks, 08:00 (about 8.7k trips/hour) and 17:00-18:00 (about 10.7k).
   Weekday casual riders: a single peak at 17:00. Weekends: both groups have one broad afternoon
   peak (14:00-15:00) (Figure 2).
-- Daily trips: min 12,857 (2025-12-27, 2.6 in of snow), median 130,857, max 201,875 (2025-09-26).
-  Mean weekday 126,730 vs weekend 113,979.
+- Daily trips: min 12,854 (2025-12-27, 2.6 in of snow), median 130,857, max 201,875 (2025-09-26).
+  Mean weekday 126,728 vs weekend 113,976.
 - The five lowest days are snow days, a 3.66 in rain day (2024-03-23) or Christmas, which shows that
   single-day weather shocks are large relative to seasonal variation (Figure 1).
 
@@ -222,11 +228,11 @@ sensitive to this choice.
 
 | | Inside | Outside |
 |---|---|---|
-| Station ids (ever active) | 405 | 1,886 |
-| Stations active in 2024 / 2025 | 397 / 388 | 1,809 / 1,847 |
+| Station ids (ever active) | 405 | 1,885 |
+| Stations active in 2024 / 2025 | 397 / 388 | 1,809 / 1,846 |
 | Stations active all 24 months | 324 | 1,573 |
 | Trips 2024 | 21,334,281 | 22,920,707 |
-| Trips 2025 | 22,130,667 | 23,601,904 |
+| Trips 2025 | 22,130,605 | 23,599,972 |
 | Change 2024 -> 2025, all stations | +3.7% | +3.0% |
 | Change, stations active all 24 months | +1.1% | +2.7% |
 
@@ -235,9 +241,9 @@ is the main specification.
 
 | Buffer | Stations inside | 2024 -> 2025, all stations: inside / outside / gap | Stations active all 24 months: inside / outside / gap |
 |---|---|---|---|
-| 0 m (polygon only) | 391 | +3.74% / +2.99% / +0.75 pp | +1.38% / +2.46% / -1.08 pp |
-| 50 m (main) | 405 | +3.73% / +2.97% / +0.76 pp | +1.12% / +2.73% / -1.61 pp |
-| 150 m | 410 | +3.90% / +2.81% / +1.10 pp | +1.10% / +2.75% / -1.66 pp |
+| 0 m (polygon only) | 391 | +3.74% / +2.98% / +0.76 pp | +1.38% / +2.45% / -1.08 pp |
+| 50 m (main) | 405 | +3.73% / +2.96% / +0.77 pp | +1.12% / +2.72% / -1.60 pp |
+| 150 m | 410 | +3.90% / +2.80% / +1.10 pp | +1.10% / +2.75% / -1.65 pp |
 
 The buffer moves the gap by at most 0.6 points. The choice of station panel moves it by about 2
 points and changes its sign, so the panel definition matters more than the boundary.
@@ -270,14 +276,14 @@ Q4 2024 vs Q4 2025 (October-December), for the late-2025 decline. Descriptive on
 
 | | Q4 2024 | Q4 2025 | Change |
 |---|---|---|---|
-| Trips | 11,158,901 | 10,230,570 | -8.3% |
-| Member trips | 9,260,309 | 8,707,193 | -6.0% |
-| Casual trips | 1,898,592 | 1,523,377 | -19.8% |
+| Trips | 11,158,901 | 10,229,822 | -8.3% |
+| Member trips | 9,260,309 | 8,706,480 | -6.0% |
+| Casual trips | 1,898,592 | 1,523,342 | -19.8% |
 | Mean TMAX (°F) | 56.8 | 52.7 | -4.1 |
 | Rain days | 25 | 32 | +7 |
 | Heavy rain days | 6 | 7 | +1 |
 | Snow days | 2 | 3 | +1 |
-| Mean monthly active stations | 2,134 | 2,175 | +41 |
+| Mean monthly active stations | 2,134 | 2,174 | +40 |
 | E-bike share | 67.9% | 71.4% | +3.5 pp |
 
 Q4 2025 was 4 °F colder with 7 more rain days (October alone: 9 rain days vs 1), while station
@@ -291,7 +297,7 @@ test, and the February 2025 pass price change is also in effect by then.
    days and 58 heavy-rain days support separate member/casual estimates. Only 22 snow days (10 with
    at least 1 inch) and 25 days at or above 90 °F: snow and extreme-heat effects will have wide
    intervals, and a hot-weather decline may not be identifiable.
-2. **Almost nothing is lost to cleaning (0.097%), but station ids need normalising** before any
+2. **Almost nothing is lost to cleaning (0.099%), but station ids need normalising** before any
    station-level work, and trips are assigned to days by local start time with no time zone.
 3. **Members and casual riders differ in both level and sensitivity.** Casual trips are 18% of the
    total, but their temperature slope is about double and their rain penalty about 8 percentage
@@ -301,7 +307,7 @@ test, and the February 2025 pass price change is also in effect by then.
    by itself dampen the measured weather response over time. Bike type reflects availability, not
    choice.
 5. **System composition shifts within the window.** E-bike share rises from 66% (2024) to 70% (2025) and member
-   share from 81% to 83%; the active station count grows only 2.7%, but 394 of 2,291
+   share from 81% to 83%; the active station count grows only 2.7%, but 393 of 2,290
    station ids are not active in all 24 months. Trend comparisons need a fixed station panel.
 6. **The congestion-pricing extension is feasible but fragile.** There is one pre-period year, the
    inside-outside gap is about 1-2 points and flips sign with the station panel, a fare increase
@@ -352,13 +358,13 @@ published zone boundary.
 
 ### §4 Data description
 
-After removing 87,018 trips (0.097%) with no start station, a depot or New Jersey start, a start
-outside the window, a non-positive duration or a duration above 24 hours, 89,987,559 trips remain:
+After removing 89,012 trips (0.099%) with no start station, a depot or New Jersey start, a start
+outside the window, a non-positive duration or a duration above 24 hours, 89,985,565 trips remain:
 44.3 million in 2024 and 45.7 million in 2025. There are no duplicate ride ids. Members account
 for 81.6% of trips and e-bikes for 68.3%. The median trip lasts 9 minutes and 99% last under 61
 minutes. About 20,000 trips sit at an artificial 24-25 hour cap, nearly all without an end
-station, which we treat as unreturned bikes. A further 215,290 trips lack an end station but
-have plausible durations; we keep them because our outcome is trip starts. Trips start at 2,291
+station, which we treat as unreturned bikes. A further 215,272 trips lack an end station but
+have plausible durations; we keep them because our outcome is trip starts. Trips start at 2,290
 stations after normalising inconsistent station ids, and demand is concentrated: 15% of stations
 produce half of all trips.
 

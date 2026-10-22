@@ -1,0 +1,39 @@
+{
+  "snow": {
+    "snow_days": 22,
+    "snow_days_ge_1in": 10,
+    "snow_days_by_year": {
+      "2024": 8,
+      "2025": 14
+    },
+    "snow_days_weekend": 11,
+    "snow_days_by_temp_bin": {
+      "2 to 4 \u00b0C (35.6 to 39.2 \u00b0F)": 7,
+      "0 to 2 \u00b0C (32 to 35.6 \u00b0F)": 7,
+      "< 0 \u00b0C (< 32 \u00b0F)": 6,
+      "4 to 6 \u00b0C (39.2 to 42.8 \u00b0F)": 2
+    },
+    "snow_days_also_rain_day": 22
+  },
+  "nobs_a": {
+    "poisson_Classic": 1379119,
+    "poisson_holiday_Classic": 1379119,
+    "ols_log1p_Classic": 1379119,
+    "poisson_E-bike": 1379119,
+    "poisson_holiday_E-bike": 1379119,
+    "ols_log1p_E-bike": 1379119
+  },
+  "nobs_b": {
+    "main": 2773414,
+    "cluster_week": 2773414,
+    "plus_ebike_x_wind": 2758238,
+    "bike_specific_calendar": 2773414,
+    "ols_log1p": 2773414,
+    "aggregated_daily_check": 1462,
+    "full_sample": 3135494
+  },
+  "paper": {
+    "30_32": 5.6,
+    "m02_00": 7.7
+  }
+}

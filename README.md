@@ -25,6 +25,7 @@ once the raw files are on disk; raw trip archives total ~16 GB).
 | `make clean-trips` | `scripts/build_clean_trips.py` | `data/processed/trips_clean/`, cleaning tables |
 | `make tables` | `scripts/build_analysis_tables.py` | station table with zone flag, daily trips + weather table |
 | `make eda` | `scripts/run_eda.py` | `figures/`, `reports/tables/`, `reports/metrics.json` |
+| `make checkpoint1` | `scripts/build_panel.py`, `scripts/cp1_*.py` | station-day panel, `figures/checkpoint1/`, `reports/tables/checkpoint1/` (see [`reports/checkpoint1_summary.md`](reports/checkpoint1_summary.md)) |
 
 `data/` is git-ignored. Raw files are never modified. Findings and proposal draft text are in
 [`summary.md`](summary.md).

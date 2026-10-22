@@ -1,0 +1,223 @@
+{
+  "n_stations_full": 2290,
+  "n_stations_main": 1897,
+  "n_days": 731,
+  "rows_full": 6270988,
+  "rows_main": 5546828,
+  "trips_in_panel_full": 89985565,
+  "trips_clean_table": 89985565,
+  "trips_in_panel_main": 78690099,
+  "share_trips_main": 0.8744746893571208,
+  "zero_cell_share_full": 0.21379804904745472,
+  "zero_cell_share_main": 0.2103495907931524,
+  "zero_station_days_full": 41363,
+  "zero_station_days_main": 27019,
+  "station_days_main": 1386707,
+  "zero_cell_share_main_by_group": {
+    "ebike0_casual0": 0.172753869418702,
+    "ebike0_casual1": 0.4650953662165115,
+    "ebike1_casual0": 0.04192378058234364,
+    "ebike1_casual1": 0.1616253469550525
+  },
+  "mean_trips_per_cell_main_by_group": {
+    "ebike0_casual0": 15.211315007424062,
+    "ebike0_casual1": 2.7720282655240074,
+    "ebike1_casual0": 31.066601668557237,
+    "ebike1_casual1": 7.6960720613655225
+  },
+  "temperature_bins": [
+    {
+      "tbin": "lt00",
+      "days": 20,
+      "display_c": "< 0",
+      "display_f": "< 32",
+      "min_tmax_c": -7.1,
+      "max_tmax_c": -0.5,
+      "min_tmax_f": 19.2,
+      "max_tmax_f": 31.1
+    },
+    {
+      "tbin": "00_02",
+      "days": 28,
+      "display_c": "0 to 2",
+      "display_f": "32 to 35.6",
+      "min_tmax_c": 0.0,
+      "max_tmax_c": 1.7,
+      "min_tmax_f": 32.0,
+      "max_tmax_f": 35.1
+    },
+    {
+      "tbin": "02_04",
+      "days": 30,
+      "display_c": "2 to 4",
+      "display_f": "35.6 to 39.2",
+      "min_tmax_c": 2.2,
+      "max_tmax_c": 3.9,
+      "min_tmax_f": 36.0,
+      "max_tmax_f": 39.0
+    },
+    {
+      "tbin": "04_06",
+      "days": 34,
+      "display_c": "4 to 6",
+      "display_f": "39.2 to 42.8",
+      "min_tmax_c": 4.4,
+      "max_tmax_c": 5.6,
+      "min_tmax_f": 39.9,
+      "max_tmax_f": 42.1
+    },
+    {
+      "tbin": "06_08",
+      "days": 37,
+      "display_c": "6 to 8",
+      "display_f": "42.8 to 46.4",
+      "min_tmax_c": 6.1,
+      "max_tmax_c": 7.8,
+      "min_tmax_f": 43.0,
+      "max_tmax_f": 46.0
+    },
+    {
+      "tbin": "08_10",
+      "days": 36,
+      "display_c": "8 to 10",
+      "display_f": "46.4 to 50",
+      "min_tmax_c": 8.3,
+      "max_tmax_c": 9.4,
+      "min_tmax_f": 46.9,
+      "max_tmax_f": 48.9
+    },
+    {
+      "tbin": "10_12",
+      "days": 47,
+      "display_c": "10 to 12",
+      "display_f": "50 to 53.6",
+      "min_tmax_c": 10.0,
+      "max_tmax_c": 11.7,
+      "min_tmax_f": 50.0,
+      "max_tmax_f": 53.1
+    },
+    {
+      "tbin": "12_14",
+      "days": 40,
+      "display_c": "12 to 14",
+      "display_f": "53.6 to 57.2",
+      "min_tmax_c": 12.2,
+      "max_tmax_c": 13.9,
+      "min_tmax_f": 54.0,
+      "max_tmax_f": 57.0
+    },
+    {
+      "tbin": "14_16",
+      "days": 44,
+      "display_c": "14 to 16",
+      "display_f": "57.2 to 60.8",
+      "min_tmax_c": 14.4,
+      "max_tmax_c": 15.6,
+      "min_tmax_f": 57.9,
+      "max_tmax_f": 60.1
+    },
+    {
+      "tbin": "16_18",
+      "days": 47,
+      "display_c": "16 to 18",
+      "display_f": "60.8 to 64.4",
+      "min_tmax_c": 16.1,
+      "max_tmax_c": 17.8,
+      "min_tmax_f": 61.0,
+      "max_tmax_f": 64.0
+    },
+    {
+      "tbin": "18_20",
+      "days": 26,
+      "display_c": "18 to 20",
+      "display_f": "64.4 to 68",
+      "min_tmax_c": 18.3,
+      "max_tmax_c": 19.4,
+      "min_tmax_f": 64.9,
+      "max_tmax_f": 66.9
+    },
+    {
+      "tbin": "20_22",
+      "days": 41,
+      "display_c": "20 to 22",
+      "display_f": "68 to 71.6",
+      "min_tmax_c": 20.0,
+      "max_tmax_c": 21.7,
+      "min_tmax_f": 68.0,
+      "max_tmax_f": 71.1
+    },
+    {
+      "tbin": "22_24",
+      "days": 62,
+      "display_c": "22 to 24",
+      "display_f": "71.6 to 75.2",
+      "min_tmax_c": 22.2,
+      "max_tmax_c": 23.9,
+      "min_tmax_f": 72.0,
+      "max_tmax_f": 75.0
+    },
+    {
+      "tbin": "24_26",
+      "days": 32,
+      "display_c": "24 to 26",
+      "display_f": "75.2 to 78.8",
+      "min_tmax_c": 24.4,
+      "max_tmax_c": 25.6,
+      "min_tmax_f": 75.9,
+      "max_tmax_f": 78.1
+    },
+    {
+      "tbin": "26_28",
+      "days": 76,
+      "display_c": "26 to 28",
+      "display_f": "78.8 to 82.4",
+      "min_tmax_c": 26.1,
+      "max_tmax_c": 27.8,
+      "min_tmax_f": 79.0,
+      "max_tmax_f": 82.0
+    },
+    {
+      "tbin": "28_30",
+      "days": 55,
+      "display_c": "28 to 30",
+      "display_f": "82.4 to 86",
+      "min_tmax_c": 28.3,
+      "max_tmax_c": 29.4,
+      "min_tmax_f": 82.9,
+      "max_tmax_f": 84.9
+    },
+    {
+      "tbin": "30_32",
+      "days": 41,
+      "display_c": "30 to 32",
+      "display_f": "86 to 89.6",
+      "min_tmax_c": 30.0,
+      "max_tmax_c": 31.7,
+      "min_tmax_f": 86.0,
+      "max_tmax_f": 89.1
+    },
+    {
+      "tbin": "ge32",
+      "days": 35,
+      "display_c": ">= 32",
+      "display_f": ">= 89.6",
+      "min_tmax_c": 32.2,
+      "max_tmax_c": 37.2,
+      "min_tmax_f": 90.0,
+      "max_tmax_f": 99.0
+    }
+  ],
+  "holidays": 22,
+  "rain_days": {
+    "rain_any": 246,
+    "rain_01": 145,
+    "rain_05": 58
+  },
+  "snow_days": 22,
+  "awnd_missing_days": [
+    "2024-01-24",
+    "2024-01-27",
+    "2024-06-23",
+    "2024-06-24"
+  ]
+}

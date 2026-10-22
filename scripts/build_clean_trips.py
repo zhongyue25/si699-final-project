@@ -5,6 +5,9 @@ Cleaning rule, applied in this order:
   2. started_at outside the study window
   3. start station id or name missing
   4. start or end station is a depot / test / demo station (SYS*, Shop Morgan, Lab, LA Metro Demo)
+  4b. start or end station name contains the whole word Charging, Depot, Lab, Shop, Demo or Test
+      (catches depots with a normal-looking id, e.g. 1234.56 "Morgan HCT Charging"; whole words
+      only, so "Wallabout St" is not matched by "Lab")
   5. start station is in New Jersey (JC* / HB* ids)
   6. duration <= 0 (timestamps are local wall-clock, so these are DST fall-back artefacts)
   7. duration < 60 s
@@ -21,12 +24,14 @@ import config
 
 NYC_ID = r"^\d{4}\.\d{1,2}(_.*)?$"
 NJ_ID = r"^(JC|HB)\d+$"
+DEPOT_NAME = r"(?i)\b(charging|depot|lab|shop|demo|test)\b"
 
 STEPS = [
     "duplicate_ride_id",
     "start_outside_window",
     "missing_start_station",
     "depot_or_test_station",
+    "depot_station_by_name",
     "start_station_in_nj",
     "duration_nonpositive",
     "duration_lt_60s",
@@ -102,6 +107,9 @@ def main():
                     THEN 'missing_start_station'
                 WHEN start_kind = 'depot_or_test' OR end_kind = 'depot_or_test'
                     THEN 'depot_or_test_station'
+                WHEN regexp_matches(coalesce(start_station_name, ''), '{DEPOT_NAME}')
+                  OR regexp_matches(coalesce(end_station_name, ''), '{DEPOT_NAME}')
+                    THEN 'depot_station_by_name'
                 WHEN start_kind = 'nj' THEN 'start_station_in_nj'
                 WHEN duration_s <= 0 THEN 'duration_nonpositive'
                 WHEN duration_s < {config.MIN_DURATION_S} THEN 'duration_lt_60s'
