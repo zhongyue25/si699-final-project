@@ -272,9 +272,22 @@ the mix effect even though (b) shows it exists. Within-type change is close to z
 **Stress tests.** Newey-West SEs move quarterly CI ends by less than 2 points. All-day instead of
 dry-day weights change any decomposition term by at most 0.04 points.
 
-**Open issues.** The 2024 Q1 rain estimate (−24%) is the outlier. That quarter had 10 heavy-rain
-days, including the 3.66 in day on 2024-03-23, so rain intensity, not sensitivity, may differ
-between quarters. A rain-intensity specification would test this. Two years is short for a trend.
+**Q1 outlier: intensity or snow?** (`scripts/cp1_rain_intensity.py`, `f3c_*.csv`). The 2024 Q1 rain
+estimate (−24%) is the outlier, and the 2025 − 2024 Q1 difference is the only significant
+same-season test. Quarterly rain effects re-estimated four ways:
+
+| Spec | 2024 Q1 | 2025 Q1 | Q1: 2025 − 2024 |
+|---|---|---|---|
+| Main (Finding 3a) | −23.8% | −11.9% | +15.6% [+1.1, +32.2], p = 0.03 |
+| Drop 2024-03-23 (3.66 in) | −22.0% | −11.7% | +13.2% [−0.5, +29.0], p = 0.06 |
+| + common heavy-rain term (PRCP ≥ 0.5 in: −23.6%) | −17.6% | −4.0% | +16.4% [+3.7, +30.7], p = 0.01 |
+| Both | −16.2% | −4.0% | +14.6% [+2.4, +28.3], p = 0.02 |
+| Drop all 22 snow days | −24.2% | −18.1% | +8.1% [−7.1, +25.8], p = 0.32 |
+
+Intensity does not explain it; the pattern points to snow. Every snow day is a rain day, and 11 of 2025 Q1's 25
+rain days are snow days (6 of 36 in 2024 Q1), so the snow term absorbs much of the 2025 Q1 rain
+loss. Without snow days no same-season rain comparison differs (other quarters move by < 2 points).
+Separating rain from snow properly needs hourly precipitation type. Two years is short for a trend.
 
 ---
 

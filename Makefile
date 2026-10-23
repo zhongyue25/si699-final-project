@@ -1,7 +1,7 @@
 PYTHON ?= .venv/bin/python
 
 .PHONY: all download parquet weather clean-trips tables eda \
-	panel finding1 finding2 finding3 availability checkpoint1
+	panel finding1 finding2 finding3 rain-intensity availability checkpoint1
 
 all: download parquet weather clean-trips tables eda checkpoint1
 
@@ -24,7 +24,7 @@ eda:
 	$(PYTHON) scripts/run_eda.py
 
 # Checkpoint 1: weather x bike type x rider type (needs the clean trips from clean-trips/tables)
-checkpoint1: panel finding1 finding2 finding3 availability
+checkpoint1: panel finding1 finding2 finding3 rain-intensity availability
 
 panel:
 	$(PYTHON) scripts/build_panel.py
@@ -37,6 +37,9 @@ finding2: panel
 
 finding3: panel
 	$(PYTHON) scripts/cp1_finding3.py
+
+rain-intensity: panel
+	$(PYTHON) scripts/cp1_rain_intensity.py
 
 availability: panel
 	$(PYTHON) scripts/cp1_availability.py
