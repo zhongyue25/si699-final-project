@@ -26,6 +26,7 @@ once the raw files are on disk; raw trip archives total ~16 GB).
 | `make tables` | `scripts/build_analysis_tables.py` | station table with zone flag, daily trips + weather table |
 | `make eda` | `scripts/run_eda.py` | `figures/`, `reports/tables/`, `reports/metrics.json` |
 | `make checkpoint1` | `scripts/build_panel.py`, `scripts/cp1_*.py` | station-day panel, `figures/checkpoint1/`, `reports/tables/checkpoint1/` (see [`reports/checkpoint1_summary.md`](reports/checkpoint1_summary.md)) |
+| `make checkpoint2` | `scripts/build_weather_hourly.py`, `scripts/build_hourly_panel.py`, `scripts/build_distance_table.py`, `scripts/cp2_*.py` | NOAA hourly LCD (`data/raw/noaa_hourly/`), hourly trip table, `figures/checkpoint2/`, `reports/tables/checkpoint2/` |
 
 `data/` is git-ignored. Raw files are never modified. Findings and proposal draft text are in
 [`summary.md`](summary.md).
@@ -34,4 +35,5 @@ once the raw files are on disk; raw trip archives total ~16 GB).
 
 - Citi Bike trip histories: https://s3.amazonaws.com/tripdata/index.html
 - NOAA GHCN-Daily, station USW00094728 (NY City Central Park)
+- NOAA Local Climatological Data v2 (hourly), same station: https://www.ncei.noaa.gov/oa/local-climatological-data/v2/
 - MTA Central Business District geofence: https://data.ny.gov/d/srxy-5nxn

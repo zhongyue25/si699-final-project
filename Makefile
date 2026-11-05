@@ -1,9 +1,10 @@
 PYTHON ?= .venv/bin/python
 
 .PHONY: all download parquet weather clean-trips tables eda \
-	panel finding1 finding2 finding3 rain-intensity availability checkpoint1
+	panel finding1 finding2 finding3 rain-intensity availability checkpoint1 \
+	weather-hourly hourly-panel sample-checks finding4 distance checkpoint2
 
-all: download parquet weather clean-trips tables eda checkpoint1
+all: download parquet weather clean-trips tables eda checkpoint1 checkpoint2
 
 download:
 	$(PYTHON) scripts/download_data.py
@@ -43,3 +44,22 @@ rain-intensity: panel
 
 availability: panel
 	$(PYTHON) scripts/cp1_availability.py
+
+# Checkpoint 2: hourly weather, trip context, sample checks (needs checkpoint1's panel)
+checkpoint2: weather-hourly hourly-panel sample-checks finding4 distance
+
+weather-hourly:
+	$(PYTHON) scripts/build_weather_hourly.py
+
+hourly-panel:
+	$(PYTHON) scripts/build_hourly_panel.py
+
+sample-checks: panel weather-hourly
+	$(PYTHON) scripts/cp2_sample_checks.py
+
+finding4: weather-hourly hourly-panel
+	$(PYTHON) scripts/cp2_finding4.py
+
+distance:
+	$(PYTHON) scripts/build_distance_table.py
+	$(PYTHON) scripts/cp2_distance.py
