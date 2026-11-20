@@ -1,0 +1,33 @@
+casual,ebike,context,hours,rain_hours,trips,rain_trips,dry_trips,rider,bike,purpose,context_label
+0,0,am_in,1503,105,233030,7820,225210,Member,Classic,commute,"Weekday 7-10am, into CBD"
+0,0,night,8731,783,4013420,194668,3818752,Member,Classic,mixed,Night (8pm-7am)
+0,0,pm_out,2004,175,308227,11610,296617,Member,Classic,commute,"Weekday 4-8pm, out of CBD"
+0,0,round,17544,1477,401952,17752,384200,Member,Classic,leisure,Round trip (any time)
+0,0,wd_am,1503,105,3013091,115443,2897648,Member,Classic,commute,"Weekday 7-10am, other"
+0,0,wd_mid,3006,205,4507499,151804,4355695,Member,Classic,mixed,Weekday 10am-4pm
+0,0,wd_pm,2004,175,4758484,217079,4541405,Member,Classic,commute,"Weekday 4-8pm, other"
+0,0,we_day,2300,209,3857934,185126,3672808,Member,Classic,leisure,Weekend/holiday 10am-8pm
+0,1,am_in,1503,105,782231,25904,756327,Member,E-bike,commute,"Weekday 7-10am, into CBD"
+0,1,night,8731,783,9605867,500512,9105355,Member,E-bike,mixed,Night (8pm-7am)
+0,1,pm_out,2004,175,1084205,43586,1040619,Member,E-bike,commute,"Weekday 4-8pm, out of CBD"
+0,1,round,17544,1477,603992,33043,570949,Member,E-bike,leisure,Round trip (any time)
+0,1,wd_am,1503,105,5199413,244193,4955220,Member,E-bike,commute,"Weekday 7-10am, other"
+0,1,wd_mid,3006,205,8735565,326076,8409489,Member,E-bike,mixed,Weekday 10am-4pm
+0,1,wd_pm,2004,175,9351484,488508,8862976,Member,E-bike,commute,"Weekday 4-8pm, other"
+0,1,we_day,2300,209,7717517,409512,7308005,Member,E-bike,leisure,Weekend/holiday 10am-8pm
+1,0,am_in,1503,105,12159,253,11906,Casual,Classic,commute,"Weekday 7-10am, into CBD"
+1,0,night,8731,783,766017,29013,737004,Casual,Classic,mixed,Night (8pm-7am)
+1,0,pm_out,2004,175,39331,1202,38129,Casual,Classic,commute,"Weekday 4-8pm, out of CBD"
+1,0,round,17544,1477,248472,7673,240799,Casual,Classic,leisure,Round trip (any time)
+1,0,wd_am,1503,105,222357,6406,215951,Casual,Classic,commute,"Weekday 7-10am, other"
+1,0,wd_mid,3006,205,737860,15910,721950,Casual,Classic,mixed,Weekday 10am-4pm
+1,0,wd_pm,2004,175,652407,24277,628130,Casual,Classic,commute,"Weekday 4-8pm, other"
+1,0,we_day,2300,209,1165388,39759,1125629,Casual,Classic,leisure,Weekend/holiday 10am-8pm
+1,1,am_in,1503,105,61375,1715,59660,Casual,E-bike,commute,"Weekday 7-10am, into CBD"
+1,1,night,8731,783,2627529,114593,2512936,Casual,E-bike,mixed,Night (8pm-7am)
+1,1,pm_out,2004,175,177945,6347,171598,Casual,E-bike,commute,"Weekday 4-8pm, out of CBD"
+1,1,round,17544,1477,425492,16508,408984,Casual,E-bike,leisure,Round trip (any time)
+1,1,wd_am,1503,105,696494,28431,668063,Casual,E-bike,commute,"Weekday 7-10am, other"
+1,1,wd_mid,3006,205,2024903,56589,1968314,Casual,E-bike,mixed,Weekday 10am-4pm
+1,1,wd_pm,2004,175,1983998,87997,1896001,Casual,E-bike,commute,"Weekday 4-8pm, other"
+1,1,we_day,2300,209,2674461,111037,2563424,Casual,E-bike,leisure,Weekend/holiday 10am-8pm

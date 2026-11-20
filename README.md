@@ -27,6 +27,7 @@ once the raw files are on disk; raw trip archives total ~16 GB).
 | `make eda` | `scripts/run_eda.py` | `figures/`, `reports/tables/`, `reports/metrics.json` |
 | `make checkpoint1` | `scripts/build_panel.py`, `scripts/cp1_*.py` | station-day panel, `figures/checkpoint1/`, `reports/tables/checkpoint1/` (see [`reports/checkpoint1_summary.md`](reports/checkpoint1_summary.md)) |
 | `make checkpoint2` | `scripts/build_weather_hourly.py`, `scripts/build_hourly_panel.py`, `scripts/build_distance_table.py`, `scripts/cp2_*.py` | NOAA hourly LCD (`data/raw/noaa_hourly/`), hourly trip table, `figures/checkpoint2/`, `reports/tables/checkpoint2/` |
+| `make checkpoint3` | `scripts/build_hourly_distance.py`, `scripts/cp3_*.py` | hourly trip table with context and distance band, `figures/checkpoint3/`, `reports/tables/checkpoint3/` |
 
 `data/` is git-ignored. Raw files are never modified. Findings and proposal draft text are in
 [`summary.md`](summary.md).

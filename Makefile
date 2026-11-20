@@ -2,9 +2,10 @@ PYTHON ?= .venv/bin/python
 
 .PHONY: all download parquet weather clean-trips tables eda \
 	panel finding1 finding2 finding3 rain-intensity availability checkpoint1 \
-	weather-hourly hourly-panel sample-checks finding4 distance checkpoint2
+	weather-hourly hourly-panel sample-checks finding4 distance checkpoint2 \
+	purpose-ebike hourly-distance purpose-distance checkpoint3
 
-all: download parquet weather clean-trips tables eda checkpoint1 checkpoint2
+all: download parquet weather clean-trips tables eda checkpoint1 checkpoint2 checkpoint3
 
 download:
 	$(PYTHON) scripts/download_data.py
@@ -63,3 +64,17 @@ finding4: weather-hourly hourly-panel
 distance:
 	$(PYTHON) scripts/build_distance_table.py
 	$(PYTHON) scripts/cp2_distance.py
+
+# Checkpoint 3: trip purpose x bike type (needs the hourly panel from checkpoint2)
+checkpoint3: purpose-ebike purpose-distance
+
+purpose-ebike: weather-hourly hourly-panel
+	$(PYTHON) scripts/cp3_purpose_ebike.py
+	$(PYTHON) scripts/cp3_purpose_ebike.py --stress
+
+hourly-distance:
+	$(PYTHON) scripts/build_hourly_distance.py
+
+purpose-distance: weather-hourly hourly-distance
+	$(PYTHON) scripts/cp3_purpose_distance.py
+	$(PYTHON) scripts/cp3_purpose_distance.py --stress
